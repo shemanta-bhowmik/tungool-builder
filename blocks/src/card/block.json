@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "tungool-builder/card",
+    "version": "1.0.0",
+    "title": "TB Card",
+    "category": "tungool-builder",
+    "icon": "smiley",
+    "description": "A simple plugin to add custom blocks to Gutenberg",
+    "example": {},
+    "supports": {
+        "align": ["left", "center", "right"]
+    }, 
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Card Title"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "Card subtitle goes here."
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Read More"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#000000"
+        }
+    },
+    "textdomain": "tungool-builder",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
+    "render": "file:./render.php"
+}

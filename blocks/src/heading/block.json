@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "tungool-builder/heading",
+    "version": "1.0.0",
+    "title": "TB Heading",
+    "category": "tungool-builder",
+    "icon": "smiley",
+    "description": "A simple plugin to add custom blocks to Gutenberg",
+    "example": {},
+    "supports": {
+        "align": ["left", "center", "right"],
+        "background:": {
+            "backgroundColor": true,
+            "backgroundImage": true
+        },
+        "className": true,
+        "color": {
+            "text": true,
+            "background": true
+        }
+    }, 
+    "attributes": {
+        "content": {
+            "type": "string",
+            "default": "TB Heading"
+        },
+        "level": {
+            "type": "number",
+            "default": "2"
+        },
+        "align": {
+            "type": "string",
+            "default": "left"
+        }
+    },
+    "textdomain": "tungool-builder",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./index.css",
+    "style": "file:./style-index.css",
+    "render": "file:./render.php",
+    "viewScript": "file:./view.js"
+}

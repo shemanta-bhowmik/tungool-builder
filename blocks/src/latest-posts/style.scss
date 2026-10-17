@@ -1,0 +1,27 @@
+.tb-latest-posts {
+	display: grid;
+	gap: 20px;
+
+	.latest-post-item {
+		padding: 10px;
+		border: 1px solid #ccc;
+
+		.post-thumb img {
+			max-width: 100%;
+			width: 100%;
+			height: auto;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.post-title {
+			margin-bottom: 5px;
+			font-size: 18px;
+		}
+
+		.post-excerpt {
+			color: #666;
+			font-size: 14px;
+		}
+	}
+}

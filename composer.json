@@ -1,0 +1,20 @@
+{
+    "name": "shemanta-bhowmik/tungool-builder",
+    "description": "Tungool Builder: a bundle of dynamic Gutenberg blocks.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "SB\\TungoolBuilder\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shemanta Bhowmik"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4"
+    }
+}

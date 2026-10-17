@@ -1,0 +1,40 @@
+{
+  "name": "tungool-builder",
+  "version": "1.0.0",
+  "description": "Tungool Builder: a bundle of dynamic Gutenberg blocks.",
+  "keywords": [
+    "tungool-builder",
+    "gutenberg",
+    "blocks",
+    "page-builder"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "#"
+  },
+  "license": "GPL-2.0-or-later",
+  "author": "Shemanta Bhowmik",
+  "private": true,
+  "scripts": {
+    "start": "npm run block:start",
+    "build": "npm run block:build",
+    "assets:start": "wp-scripts start --config webpack.assets.config.js",
+    "assets:build": "wp-scripts build --config webpack.assets.config.js",
+    "block:start": "wp-scripts start --blocks-manifest --webpack-src-dir=blocks/src --output-path=blocks/build",
+    "block:build": "wp-scripts build --blocks-manifest --webpack-src-dir=blocks/src --output-path=blocks/build",
+    "lint:js": "wp-scripts lint-js",
+    "lint:css": "wp-scripts lint-style",
+    "format": "wp-scripts format"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^31.8.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.4",
+    "mini-css-extract-plugin": "^2.9.4",
+    "postcss-loader": "^8.2.0",
+    "sass": "^1.97.1",
+    "sass-loader": "^16.0.6",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
