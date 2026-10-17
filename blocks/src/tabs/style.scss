@@ -1,0 +1,145 @@
+// TB Tabs — shared by editor and frontend. Instance values come from DynamicCSS
+// (.tb-tabs.tb-block-x > ...) and override these defaults.
+
+.tb-tabs {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+.tb-tabs__nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.tb-tabs__title,
+.tb-tabs__acc-title {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	margin: 0;
+	padding: 0.75em 1.25em;
+	font: inherit;
+	color: inherit;
+	text-align: start;
+	background: transparent;
+	border: 0 solid currentColor;
+	cursor: pointer;
+	transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease;
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: -2px;
+	}
+
+	&[aria-selected="true"],
+	&[aria-expanded="true"] {
+		font-weight: 600;
+		box-shadow: inset 0 -2px 0 currentColor;
+	}
+}
+
+.tb-tabs__icon {
+	display: inline-flex;
+	line-height: 0;
+	font-size: 1em;
+
+	> .tb-icon {
+		width: 1em;
+		height: 1em;
+	}
+}
+
+.tb-tabs__panels {
+	min-width: 0;
+}
+
+.tb-tab {
+	box-sizing: border-box;
+	padding: 1.25em 0;
+
+	&[hidden] {
+		display: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+	}
+}
+
+// Only rendered on the frontend; shown on mobile by the mode classes below.
+.tb-tabs__acc-title {
+	display: none;
+	width: 100%;
+}
+
+.tb-tabs--full > .tb-tabs__nav > .tb-tabs__title {
+	flex: 1 1 0;
+	justify-content: center;
+}
+
+.tb-tabs--vertical {
+	flex-direction: row;
+
+	> .tb-tabs__nav {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		flex-shrink: 0;
+		width: 220px;
+
+		&[aria-orientation="vertical"] > .tb-tabs__title[aria-selected="true"] {
+			box-shadow: inset -2px 0 0 currentColor;
+		}
+	}
+
+	> .tb-tabs__panels {
+		flex: 1 1 auto;
+
+		> .tb-tab {
+			padding: 0 1.25em;
+		}
+	}
+}
+
+// Vertical "full width" titles stretch across the nav column.
+.tb-tabs--vertical.tb-tabs--full > .tb-tabs__nav > .tb-tabs__title {
+	flex: 0 0 auto;
+	justify-content: flex-start;
+}
+
+@media (max-width: 767px) {
+	.tb-tabs--mobile-accordion,
+	.tb-tabs--mobile-stacked {
+		flex-direction: column;
+
+		> .tb-tabs__nav {
+			display: none;
+		}
+
+		> .tb-tabs__panels > .tb-tabs__acc-title {
+			display: flex;
+		}
+
+		> .tb-tabs__panels > .tb-tab {
+			padding: 1em;
+		}
+	}
+
+	.tb-tabs--mobile-stacked > .tb-tabs__panels > .tb-tab[hidden] {
+		display: block;
+	}
+
+	.tb-tabs--mobile-stacked > .tb-tabs__panels > .tb-tabs__acc-title {
+		cursor: default;
+		font-weight: 600;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tb-tabs__title,
+	.tb-tabs__acc-title {
+		transition: none;
+	}
+}

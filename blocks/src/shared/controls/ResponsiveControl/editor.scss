@@ -1,0 +1,16 @@
+.tb-responsive-control__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.tb-responsive-control__devices {
+	display: flex;
+	gap: 2px;
+
+	.components-button.has-icon {
+		min-width: 28px;
+		padding: 2px;
+	}
+}

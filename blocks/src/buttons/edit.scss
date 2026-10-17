@@ -1,0 +1,6 @@
+// Editor only: the appender sits inline with the buttons.
+.tb-buttons > .block-list-appender {
+	position: relative;
+	display: inline-flex;
+	align-self: center;
+}

@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/tabs",
+	"version": "1.0.0",
+	"title": "TB Tabs",
+	"category": "tungool-builder",
+	"icon": "index-card",
+	"description": "Tabbed content with horizontal or vertical titles, optional icons, deep links and an accordion or stacked layout on mobile.",
+	"keywords": [ "tabs", "tab", "toggle", "panels" ],
+	"textdomain": "tungool-builder",
+	"allowedBlocks": [ "tungool-builder/tab" ],
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"defaultTab": { "type": "number", "default": 0 },
+		"orientation": { "type": "string", "default": "horizontal" },
+		"navAlign": { "type": "object", "default": {} },
+		"fullWidth": { "type": "boolean", "default": false },
+		"navWidth": { "type": "object", "default": {} },
+		"mobileMode": { "type": "string", "default": "accordion" },
+		"iconPosition": { "type": "string", "default": "before" },
+		"hashNavigation": { "type": "boolean", "default": false },
+		"titleGap": { "type": "object", "default": {} },
+		"navSpacing": { "type": "object", "default": {} },
+		"iconSize": { "type": "object", "default": {} },
+		"titleTypography": { "type": "object", "default": {} },
+		"titlePadding": { "type": "object", "default": {} },
+		"titleColor": { "type": "object", "default": {} },
+		"titleActiveColor": { "type": "object", "default": {} },
+		"titleBg": { "type": "object", "default": {} },
+		"titleActiveBg": { "type": "object", "default": {} },
+		"titleBorder": { "type": "object", "default": {} },
+		"titleActiveBorderColor": { "type": "object", "default": {} },
+		"panelBg": { "type": "object", "default": {} },
+		"panelPadding": { "type": "object", "default": {} },
+		"panelBorder": { "type": "object", "default": {} }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"align": [ "wide", "full" ],
+		"spacing": { "margin": true }
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "tungool-builder/tab",
+				"attributes": { "title": "Overview", "icon": "star" },
+				"innerBlocks": [ { "name": "core/paragraph", "attributes": { "content": "Everything you need to know at a glance." } } ]
+			},
+			{
+				"name": "tungool-builder/tab",
+				"attributes": { "title": "Details", "icon": "check" },
+				"innerBlocks": [ { "name": "core/paragraph", "attributes": { "content": "The finer points live here." } } ]
+			}
+		]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php"
+}

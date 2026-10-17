@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/accordion",
+	"version": "1.0.0",
+	"title": "TB Accordion",
+	"category": "tungool-builder",
+	"icon": "menu-alt3",
+	"description": "Collapsible items with open/closed icons, smooth height animation and optional FAQ schema.",
+	"keywords": [ "accordion", "faq", "toggle", "collapse" ],
+	"textdomain": "tungool-builder",
+	"allowedBlocks": [ "tungool-builder/accordion-item" ],
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"firstOpen": { "type": "boolean", "default": true },
+		"allowMultiple": { "type": "boolean", "default": false },
+		"collapsible": { "type": "boolean", "default": true },
+		"iconClosed": { "type": "string", "default": "plus" },
+		"iconOpen": { "type": "string", "default": "minus" },
+		"iconPosition": { "type": "string", "default": "right" },
+		"titleTag": { "type": "string", "default": "h3" },
+		"faqSchema": { "type": "boolean", "default": false },
+		"itemGap": { "type": "object", "default": {} },
+		"itemBorder": { "type": "object", "default": {} },
+		"titleTypography": { "type": "object", "default": {} },
+		"titlePadding": { "type": "object", "default": {} },
+		"titleColor": { "type": "object", "default": {} },
+		"titleActiveColor": { "type": "object", "default": {} },
+		"titleBg": { "type": "object", "default": {} },
+		"titleActiveBg": { "type": "object", "default": {} },
+		"iconSize": { "type": "object", "default": {} },
+		"iconColor": { "type": "object", "default": {} },
+		"contentPadding": { "type": "object", "default": {} },
+		"contentBg": { "type": "object", "default": {} }
+	},
+	"providesContext": {
+		"tungool-builder/accordionIconClosed": "iconClosed",
+		"tungool-builder/accordionIconOpen": "iconOpen",
+		"tungool-builder/accordionIconPosition": "iconPosition",
+		"tungool-builder/accordionTitleTag": "titleTag",
+		"tungool-builder/accordionFaq": "faqSchema"
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"align": [ "wide", "full" ],
+		"spacing": { "margin": true }
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "tungool-builder/accordion-item",
+				"attributes": { "title": "What is included?" },
+				"innerBlocks": [ { "name": "core/paragraph", "attributes": { "content": "Everything you need to get started." } } ]
+			},
+			{
+				"name": "tungool-builder/accordion-item",
+				"attributes": { "title": "Can I cancel any time?" },
+				"innerBlocks": [ { "name": "core/paragraph", "attributes": { "content": "Yes, with one click." } } ]
+			}
+		]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php"
+}

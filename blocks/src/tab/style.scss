@@ -1,0 +1,8 @@
+// TB Tab — panel styles live in tabs/style.scss (.tb-tab); this keeps content contained.
+.tb-tab > :first-child {
+	margin-top: 0;
+}
+
+.tb-tab > :last-child {
+	margin-bottom: 0;
+}

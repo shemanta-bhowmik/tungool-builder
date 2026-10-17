@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/counter",
+	"version": "1.0.0",
+	"title": "TB Counter",
+	"category": "tungool-builder",
+	"icon": "performance",
+	"description": "An animated number that counts up when it scrolls into view, with prefix, suffix, title and an optional icon.",
+	"keywords": [ "counter", "number", "stat", "statistic", "count up" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"start": { "type": "number", "default": 0 },
+		"end": { "type": "number", "default": 100 },
+		"duration": { "type": "number", "default": 2000 },
+		"decimals": { "type": "number", "default": 0 },
+		"thousandsSeparator": { "type": "string", "default": "," },
+		"decimalSeparator": { "type": "string", "default": "." },
+		"prefix": { "type": "string", "default": "" },
+		"suffix": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "" },
+		"titlePosition": { "type": "string", "default": "below" },
+		"icon": { "type": "string", "default": "" },
+		"align": { "type": "object", "default": {} },
+		"gap": { "type": "object", "default": {} },
+		"numberTypography": { "type": "object", "default": {} },
+		"numberColor": { "type": "object", "default": {} },
+		"titleTypography": { "type": "object", "default": {} },
+		"titleColor": { "type": "object", "default": {} },
+		"iconSize": { "type": "object", "default": {} },
+		"iconColor": { "type": "object", "default": {} }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"spacing": { "margin": true, "padding": true }
+	},
+	"example": {
+		"attributes": { "end": 1250, "suffix": "+", "title": "Happy clients", "icon": "heart", "align": { "desktop": "center" } }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

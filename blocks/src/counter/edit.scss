@@ -1,0 +1,4 @@
+// Editor only: keep an empty title clickable.
+.tb-counter .tb-counter__title:empty {
+	min-height: 1em;
+}

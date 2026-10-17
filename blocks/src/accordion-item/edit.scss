@@ -1,0 +1,8 @@
+// Editor only: the title is editable text, so only the icon toggles.
+.tb-accordion-item__title .tb-accordion-item__title-text {
+	cursor: text;
+}
+
+.tb-accordion-item__title .tb-accordion-item__icon {
+	cursor: pointer;
+}

@@ -1,0 +1,14 @@
+// Editor only.
+.tb-pricing .tb-button {
+	cursor: text;
+}
+
+.tb-pricing-feature-setting {
+	margin-bottom: 16px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #e0e0e0;
+
+	> * + * {
+		margin-top: 8px;
+	}
+}

@@ -1,0 +1,9 @@
+// Editor only: links and buttons in the preview are inert.
+.tb-post-grid a,
+.tb-post-grid .tb-button {
+	cursor: default;
+}
+
+.tb-post-grid-part-row {
+	margin-bottom: 8px;
+}

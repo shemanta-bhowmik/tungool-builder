@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/text",
+	"version": "1.0.0",
+	"title": "TB Text",
+	"category": "tungool-builder",
+	"icon": "editor-paragraph",
+	"description": "A paragraph of rich text with responsive typography, link colors, an optional drop cap and multi-column layout.",
+	"keywords": [ "text", "paragraph", "columns", "drop cap" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"content": { "type": "string", "default": "" },
+		"tagName": { "type": "string", "default": "p" },
+		"align": { "type": "object", "default": {} },
+		"typography": { "type": "object", "default": {} },
+		"padding": { "type": "object", "default": {} },
+		"margin": { "type": "object", "default": {} },
+		"maxWidth": { "type": "object", "default": {} },
+		"textColor": { "type": "object", "default": {} },
+		"linkColor": { "type": "object", "default": {} },
+		"background": { "type": "object", "default": {} },
+		"dropCap": { "type": "boolean", "default": false },
+		"dropCapSize": { "type": "string", "default": "" },
+		"dropCapColor": { "type": "string", "default": "" },
+		"columns": { "type": "object", "default": { "mobile": 1 } },
+		"columnGap": { "type": "object", "default": {} },
+		"columnRule": { "type": "object", "default": {} },
+		"border": { "type": "object", "default": {} },
+		"boxShadow": { "type": "object", "default": {} }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"example": {
+		"attributes": {
+			"content": "Tungool Text gives you <strong>responsive typography</strong>, <a href=\"#\">link colors</a>, a drop cap and multi-column layouts for long-form copy.",
+			"dropCap": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

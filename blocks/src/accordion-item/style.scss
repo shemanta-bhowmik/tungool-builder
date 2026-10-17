@@ -1,0 +1,89 @@
+// TB Accordion Item — shared by editor and frontend. Instance styles are set on the
+// parent (.tb-accordion.tb-block-x > .tb-accordion-item ...).
+
+.tb-accordion-item {
+	box-sizing: border-box;
+	overflow: hidden;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.tb-accordion-item__heading {
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.tb-accordion-item__title {
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+	width: 100%;
+	margin: 0;
+	padding: 1em 1.25em;
+	font: inherit;
+	font-weight: 600;
+	color: inherit;
+	text-align: start;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	transition: color 200ms ease, background-color 200ms ease;
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: -2px;
+	}
+}
+
+.tb-accordion-item__title-text {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.tb-accordion-item__icon {
+	display: inline-flex;
+	flex-shrink: 0;
+	line-height: 0;
+	font-size: 1em;
+
+	.tb-icon {
+		width: 1em;
+		height: 1em;
+	}
+}
+
+.tb-accordion-item__icon-open,
+.tb-accordion-item__title[aria-expanded="true"] .tb-accordion-item__icon-closed {
+	display: none;
+}
+
+.tb-accordion-item__title[aria-expanded="true"] .tb-accordion-item__icon-open {
+	display: inline-flex;
+}
+
+.tb-accordion-item__icon-closed {
+	display: inline-flex;
+}
+
+.tb-accordion-item__panel[hidden] {
+	display: none;
+}
+
+.tb-accordion-item__content {
+	padding: 0 1.25em 1em;
+
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tb-accordion-item__title {
+		transition: none;
+	}
+}

@@ -1,0 +1,4 @@
+// Editor only: give empty items a click target.
+.tb-icon-list-item__text:empty {
+	min-width: 4ch;
+}

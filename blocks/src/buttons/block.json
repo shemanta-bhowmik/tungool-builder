@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/buttons",
+	"version": "1.0.0",
+	"title": "TB Buttons",
+	"category": "tungool-builder",
+	"icon": "button",
+	"description": "A group of TB Buttons with responsive direction, alignment, gap and wrapping.",
+	"keywords": [ "buttons", "button group", "cta", "link" ],
+	"textdomain": "tungool-builder",
+	"allowedBlocks": [ "tungool-builder/button" ],
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"direction": { "type": "object", "default": {} },
+		"justify": { "type": "object", "default": {} },
+		"alignItems": { "type": "object", "default": {} },
+		"gap": { "type": "object", "default": {} },
+		"wrap": { "type": "object", "default": {} },
+		"stackOnMobile": { "type": "boolean", "default": false }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"innerBlocks": [
+			{ "name": "tungool-builder/button", "attributes": { "text": "Get started", "preset": "primary" } },
+			{ "name": "tungool-builder/button", "attributes": { "text": "Learn more", "preset": "outline", "icon": "arrow-right" } }
+		]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/testimonial",
+	"version": "1.0.0",
+	"title": "TB Testimonial",
+	"category": "tungool-builder",
+	"icon": "format-quote",
+	"description": "A customer quote with name, role, avatar and an optional star rating, in card, centered, avatar-left or quote-icon layouts.",
+	"keywords": [ "testimonial", "review", "quote", "rating", "stars" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"layout": { "type": "string", "default": "card" },
+		"quote": { "type": "string", "default": "" },
+		"name": { "type": "string", "default": "" },
+		"role": { "type": "string", "default": "" },
+		"avatar": { "type": "object", "default": {} },
+		"showRating": { "type": "boolean", "default": false },
+		"rating": { "type": "number", "default": 5 },
+		"quoteIcon": { "type": "string", "default": "quote" },
+		"padding": { "type": "object", "default": {} },
+		"background": { "type": "object", "default": {} },
+		"border": { "type": "object", "default": {} },
+		"boxShadow": { "type": "object", "default": {} },
+		"quoteTypography": { "type": "object", "default": {} },
+		"quoteColor": { "type": "object", "default": {} },
+		"nameTypography": { "type": "object", "default": {} },
+		"nameColor": { "type": "object", "default": {} },
+		"roleTypography": { "type": "object", "default": {} },
+		"roleColor": { "type": "object", "default": {} },
+		"avatarSize": { "type": "object", "default": {} },
+		"avatarRadius": { "type": "string", "default": "" },
+		"starSize": { "type": "object", "default": {} },
+		"starColor": { "type": "object", "default": {} },
+		"starEmptyColor": { "type": "object", "default": {} },
+		"quoteIconSize": { "type": "object", "default": {} },
+		"quoteIconColor": { "type": "object", "default": {} }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"spacing": { "margin": true }
+	},
+	"example": {
+		"attributes": {
+			"layout": "card",
+			"quote": "Tungool Blocks cut our page build time in half. The editor feels exactly like the live site.",
+			"name": "Alex Morgan",
+			"role": "Marketing Lead, Northwind",
+			"showRating": true,
+			"rating": 4.5
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,135 @@
+// TB Image — shared by editor and frontend. Instance values (DynamicCSS,
+// .tb-image.tb-block-x .tb-image__media / __img) override these defaults.
+
+.tb-image {
+	box-sizing: border-box;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.tb-image__media {
+	position: relative;
+	box-sizing: border-box;
+	width: fit-content;
+	max-width: 100%;
+	overflow: hidden; // clips zoom and border radius
+	transition-property: transform, box-shadow;
+	transition-duration: 300ms;
+	transition-timing-function: ease;
+}
+
+.tb-image__img {
+	display: block;
+	box-sizing: border-box;
+	max-width: 100%;
+	height: auto;
+	object-fit: cover; // no crop at the natural ratio; crops when ratio/height is set
+	transition-property: transform, filter, opacity;
+	transition-duration: 300ms;
+	transition-timing-function: ease;
+}
+
+.tb-image__link,
+.tb-image__lightbox-trigger {
+	display: block;
+	line-height: 0;
+}
+
+.tb-image__lightbox-trigger {
+	appearance: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: zoom-in;
+	width: 100%;
+}
+
+.tb-image__link:focus-visible,
+.tb-image__lightbox-trigger:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: -2px;
+}
+
+.tb-image__caption {
+	margin-top: 0.5em;
+	margin-bottom: 0;
+	font-size: 0.875em;
+}
+
+// Hover effects.
+.tb-image--hover-zoom .tb-image__media:hover .tb-image__img,
+.tb-image--hover-zoom .tb-image__media:focus-within .tb-image__img {
+	transform: scale(1.08);
+}
+
+.tb-image--hover-lift .tb-image__media {
+	overflow: visible;
+
+	.tb-image__img {
+		border-radius: inherit;
+	}
+
+	&:hover,
+	&:focus-within {
+		transform: translateY(-6px);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tb-image__media,
+	.tb-image__img {
+		transition-duration: 0s !important;
+	}
+}
+
+// Lightbox (built by view.js).
+.tb-image-lightbox {
+	max-width: 100vw;
+	max-height: 100vh;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+
+	&::backdrop {
+		background: rgba(0, 0, 0, 0.88);
+	}
+
+	&__img {
+		display: block;
+		max-width: calc(100vw - 2rem);
+		max-height: calc(100vh - 2rem);
+		width: auto;
+		height: auto;
+		margin: auto;
+		position: absolute;
+		inset: 0;
+		object-fit: contain;
+	}
+
+	&__close {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 1;
+		width: 2.5rem;
+		height: 2.5rem;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: rgba(0, 0, 0, 0.6);
+		color: #fff;
+		font-size: 1.5rem;
+		line-height: 1;
+		cursor: pointer;
+
+		&:focus-visible {
+			outline: 2px solid #fff;
+			outline-offset: 2px;
+		}
+	}
+}

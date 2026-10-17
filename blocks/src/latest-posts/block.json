@@ -10,7 +10,8 @@
     "example": {},
     "supports": {
         "align": ["left", "center", "right"],
-        "html": false
+        "html": false,
+        "inserter": false
     }, 
     "attributes": {
         "postType": {

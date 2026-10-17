@@ -1,0 +1,8 @@
+// TB Spacer — shared by editor and frontend. Height per device comes from DynamicCSS.
+.tb-spacer {
+	box-sizing: border-box;
+	height: 50px;
+	margin-top: 0;
+	margin-bottom: 0;
+	clear: both;
+}

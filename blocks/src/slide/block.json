@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/slide",
+	"version": "1.0.0",
+	"title": "TB Slide",
+	"category": "tungool-builder",
+	"parent": [ "tungool-builder/slider" ],
+	"icon": "slides",
+	"description": "One slide of a TB Slider. Holds any blocks, with its own background, overlay and minimum height.",
+	"keywords": [ "slide", "carousel" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"minHeight": { "type": "object", "default": {} },
+		"verticalAlign": { "type": "string", "default": "center" },
+		"padding": { "type": "object", "default": {} },
+		"background": { "type": "object", "default": {} }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"reusable": false,
+		"color": {
+			"text": true,
+			"link": true,
+			"background": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"minHeight": { "desktop": "240px" },
+			"background": { "color": { "normal": "#f0f0f0" } }
+		},
+		"innerBlocks": [
+			{ "name": "tungool-builder/heading", "attributes": { "content": "Slide", "level": 3 } }
+		]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

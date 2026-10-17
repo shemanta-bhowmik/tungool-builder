@@ -1,0 +1,87 @@
+// Shared TB Button look — used by tungool-builder/button and blocks that embed a button (info-box).
+// Presets use theme colors with fallbacks; instance colors (DynamicCSS) override them.
+
+.tb-button {
+	appearance: none;
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	width: 100%;
+	margin: 0;
+	padding: 0.75em 1.5em;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	font: inherit;
+	line-height: 1.2;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition-property: color, background-color, border-color, box-shadow;
+	transition-duration: 300ms;
+	transition-timing-function: ease;
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
+	}
+}
+
+.tb-button__icon {
+	display: inline-flex;
+	flex-shrink: 0;
+	line-height: 0;
+}
+
+.tb-button__text {
+	min-width: 1px; // keeps the RichText caret visible when empty in the editor
+}
+
+.tb-button--primary {
+	color: var(--wp--preset--color--base, #fff);
+	background-color: var(--wp--preset--color--contrast, #1e1e1e);
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.85;
+	}
+}
+
+.tb-button--secondary {
+	color: var(--wp--preset--color--contrast, #1e1e1e);
+	background-color: var(--wp--preset--color--accent-2, rgba(0, 0, 0, 0.08));
+
+	&:hover,
+	&:focus-visible {
+		opacity: 0.85;
+	}
+}
+
+.tb-button--outline {
+	color: var(--wp--preset--color--contrast, #1e1e1e);
+	background-color: transparent;
+	border-color: currentColor;
+
+	&:hover,
+	&:focus-visible {
+		color: var(--wp--preset--color--base, #fff);
+		background-color: var(--wp--preset--color--contrast, #1e1e1e);
+		border-color: var(--wp--preset--color--contrast, #1e1e1e);
+	}
+}
+
+.tb-button--text {
+	padding: 0;
+	color: inherit;
+	background-color: transparent;
+	border-color: transparent;
+	border-radius: 0;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+
+	&:hover,
+	&:focus-visible {
+		text-decoration-thickness: 2px;
+	}
+}

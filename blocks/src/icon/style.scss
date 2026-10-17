@@ -1,0 +1,79 @@
+// TB Icon — shared by editor and frontend. Instance values come from DynamicCSS
+// (.tb-icon-wrap.tb-block-x .tb-icon-el) and override these defaults.
+
+.tb-icon-wrap {
+	box-sizing: border-box;
+	line-height: 0;
+}
+
+.tb-icon-el {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: content-box;
+	font-size: 48px;
+	line-height: 0;
+	color: inherit;
+	text-decoration: none;
+	border: 0 solid currentColor;
+	transition-property: color, background-color, border-color, transform;
+	transition-duration: 300ms;
+	transition-timing-function: ease;
+
+	> .tb-icon {
+		display: block;
+		width: 1em;
+		height: 1em;
+		flex-shrink: 0;
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
+	}
+}
+
+.tb-icon-el--stacked {
+	padding: 0.5em;
+	color: var(--wp--preset--color--base, #fff);
+	background-color: var(--wp--preset--color--contrast, #1e1e1e);
+}
+
+.tb-icon-el--framed {
+	padding: 0.5em;
+	border-width: 2px;
+}
+
+.tb-icon-el--circle {
+	border-radius: 50%;
+}
+
+.tb-icon-el--rounded {
+	border-radius: 20%;
+}
+
+.tb-icon-el--square {
+	border-radius: 0;
+}
+
+.tb-icon-el--anim-grow:hover {
+	transform: scale(1.15);
+}
+
+.tb-icon-el--anim-rotate:hover {
+	transform: rotate(15deg);
+}
+
+.tb-icon-el--anim-float:hover {
+	transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tb-icon-el {
+		transition-property: color, background-color, border-color;
+	}
+
+	.tb-icon-el[class*="tb-icon-el--anim-"]:hover {
+		transform: none;
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/accordion-item",
+	"version": "1.0.0",
+	"title": "TB Accordion Item",
+	"category": "tungool-builder",
+	"parent": [ "tungool-builder/accordion" ],
+	"icon": "arrow-down-alt2",
+	"description": "One collapsible item of a TB Accordion: a title and any blocks as content.",
+	"keywords": [ "accordion", "faq", "item" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "" }
+	},
+	"usesContext": [
+		"tungool-builder/accordionIconClosed",
+		"tungool-builder/accordionIconOpen",
+		"tungool-builder/accordionIconPosition",
+		"tungool-builder/accordionTitleTag",
+		"tungool-builder/accordionFaq"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"reusable": false
+	},
+	"example": {
+		"attributes": { "title": "What is included?" },
+		"innerBlocks": [ { "name": "core/paragraph", "attributes": { "content": "Everything you need." } } ]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

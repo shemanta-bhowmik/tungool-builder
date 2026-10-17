@@ -1,0 +1,6 @@
+// TB Text — editor only.
+.tb-text[data-empty="true"].tb-text--drop-cap::first-letter {
+	float: none;
+	font-size: inherit;
+	margin: 0;
+}

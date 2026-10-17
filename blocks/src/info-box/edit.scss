@@ -1,0 +1,9 @@
+// Editor only: no hover lift while editing (it moves the caret target).
+.tb-info-box.is-selected,
+.tb-info-box.has-child-selected {
+	transform: none !important;
+}
+
+.tb-info-box .tb-button {
+	cursor: text;
+}

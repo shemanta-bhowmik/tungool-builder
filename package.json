@@ -20,8 +20,8 @@
     "build": "npm run block:build",
     "assets:start": "wp-scripts start --config webpack.assets.config.js",
     "assets:build": "wp-scripts build --config webpack.assets.config.js",
-    "block:start": "wp-scripts start --blocks-manifest --webpack-src-dir=blocks/src --output-path=blocks/build",
-    "block:build": "wp-scripts build --blocks-manifest --webpack-src-dir=blocks/src --output-path=blocks/build",
+    "block:start": "wp-scripts start --blocks-manifest --experimental-modules --webpack-src-dir=blocks/src --output-path=blocks/build",
+    "block:build": "wp-scripts build --blocks-manifest --experimental-modules --webpack-src-dir=blocks/src --output-path=blocks/build",
     "lint:js": "wp-scripts lint-js",
     "lint:css": "wp-scripts lint-style",
     "format": "wp-scripts format"

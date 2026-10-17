@@ -1,0 +1,131 @@
+// TB Info Box — shared by editor and frontend. Instance values via DynamicCSS.
+// The embedded button reuses the TB Button look.
+@use "../shared/styles/button";
+
+.tb-info-box {
+	--tb-info-media-size: 40px;
+	--tb-info-media-justify: flex-start;
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	transition-property: transform, box-shadow, background-color, border-color;
+	transition-duration: 300ms;
+	transition-timing-function: ease;
+
+	// Overlay color/opacity are instance values on ::before.
+	&.tb-info-box--overlay::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		border-radius: inherit;
+		pointer-events: none;
+	}
+}
+
+.tb-info-box__media {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-shrink: 0;
+	justify-content: var(--tb-info-media-justify);
+}
+
+.tb-info-box__media-inner {
+	box-sizing: content-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	transition-property: color, background-color;
+	transition-duration: 300ms;
+
+	> svg {
+		width: var(--tb-info-media-size);
+		height: var(--tb-info-media-size);
+	}
+
+	> img {
+		display: block;
+		width: var(--tb-info-media-size);
+		max-width: 100%;
+		height: auto;
+		border-radius: inherit;
+	}
+}
+
+.tb-info-box--media-image {
+	--tb-info-media-size: 120px;
+}
+
+.tb-info-box__number {
+	font-size: var(--tb-info-media-size);
+	font-weight: 700;
+	line-height: 1;
+}
+
+.tb-info-box__media-inner--circle,
+.tb-info-box__media-inner--square,
+.tb-info-box__media-inner--rounded {
+	padding: 0.6em;
+	background-color: rgba(0, 0, 0, 0.06);
+}
+
+.tb-info-box__media-inner--circle {
+	border-radius: 50%;
+	aspect-ratio: 1;
+}
+
+.tb-info-box__media-inner--rounded {
+	border-radius: 12px;
+}
+
+.tb-info-box__content {
+	position: relative;
+	z-index: 1;
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.tb-info-box__title {
+	margin: 0 0 0.5em;
+}
+
+.tb-info-box__desc {
+	margin: 0 0 1em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.tb-info-box__button {
+	display: inline-flex;
+}
+
+// Whole-box link: stretched over the box, above the content.
+.tb-info-box__link {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	border-radius: inherit;
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tb-info-box,
+	.tb-info-box__media-inner {
+		transition: none !important;
+	}
+
+	.tb-info-box:hover,
+	.tb-info-box:focus-within {
+		transform: none !important;
+	}
+}

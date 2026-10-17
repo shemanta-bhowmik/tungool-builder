@@ -1,0 +1,16 @@
+// Editor only: the "+" button at the end of the tab list.
+.tb-tabs__nav > .tb-tabs__add {
+	align-self: center;
+	opacity: 0.6;
+
+	&:hover,
+	&:focus {
+		opacity: 1;
+	}
+}
+
+// RichText needs a caret cursor inside the clickable title.
+.tb-tabs__title .tb-tabs__title-text {
+	cursor: text;
+	min-width: 1ch;
+}

@@ -86,6 +86,14 @@ $wrapper   = get_block_wrapper_attributes( array(
 ## Parity rule
 Editor markup and class names must match render.php so style.scss looks identical in both.
 
+## Frontend JS
+- Frontend JS lives in `view.js`, declared as `viewScriptModule` in block.json (`"viewScriptModule": "file:./view.js"`), so it only loads on pages where the block is used.
+- Use the WordPress Interactivity API (`@wordpress/interactivity`) for stateful behaviour (tabs, accordion, countdown). Plain JS modules only where that is clearly simpler.
+- No jQuery, no external libraries unless Shemanta approves them.
+- Keyboard and screen reader support is required — follow the WAI-ARIA Authoring Practices pattern for the widget (roles, `aria-*` states, focus management, arrow/Home/End keys where the pattern defines them).
+- Respect `prefers-reduced-motion`: when set, disable animations and transitions (CSS media query + skip JS-driven motion).
+- Everything must work with multiple instances on one page — scope state per block (Interactivity API context / per-element instances), never use global IDs or document-wide selectors.
+
 ## Definition of done (Claude Code reports, Shemanta confirms)
 - [ ] `npm run build` passes with no errors/warnings for the block
 - [ ] Inserts from inserter under the plugin category, preview (`example`) shows

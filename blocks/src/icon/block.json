@@ -1,0 +1,47 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/icon",
+	"version": "1.0.0",
+	"title": "TB Icon",
+	"category": "tungool-builder",
+	"icon": "star-empty",
+	"description": "A scalable inline SVG icon from the library or your own SVG, with stacked or framed views, hover effects and an optional link.",
+	"keywords": [ "icon", "svg", "symbol" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"iconType": { "type": "string", "default": "library" },
+		"icon": { "type": "string", "default": "star" },
+		"customSvg": { "type": "string", "default": "" },
+		"label": { "type": "string", "default": "" },
+		"view": { "type": "string", "default": "default" },
+		"shape": { "type": "string", "default": "circle" },
+		"size": { "type": "object", "default": {} },
+		"padding": { "type": "object", "default": {} },
+		"align": { "type": "object", "default": {} },
+		"rotate": { "type": "object", "default": {} },
+		"iconColor": { "type": "object", "default": {} },
+		"bgColor": { "type": "object", "default": {} },
+		"borderColor": { "type": "object", "default": {} },
+		"borderWidth": { "type": "string", "default": "" },
+		"hoverAnimation": { "type": "string", "default": "none" },
+		"url": { "type": "string", "default": "" },
+		"opensInNewTab": { "type": "boolean", "default": false },
+		"nofollow": { "type": "boolean", "default": false },
+		"sponsored": { "type": "boolean", "default": false }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"spacing": { "margin": true }
+	},
+	"example": {
+		"attributes": { "icon": "heart", "view": "stacked", "shape": "circle", "align": { "desktop": "center" } }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

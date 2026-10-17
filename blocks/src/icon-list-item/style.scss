@@ -1,0 +1,48 @@
+// TB Icon List Item — instance styles are set on the parent list.
+
+.tb-icon-list-item {
+	margin: 0;
+	padding: 0;
+}
+
+.tb-icon-list-item__inner {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	color: inherit;
+	text-decoration: none;
+	transition: color 200ms ease;
+
+	&:is(a):hover .tb-icon-list-item__text,
+	&:is(a):focus-visible .tb-icon-list-item__text {
+		text-decoration: underline;
+	}
+}
+
+.tb-icon-list-item__icon {
+	display: inline-flex;
+	flex-shrink: 0;
+	line-height: 0;
+	font-size: 1em;
+	transition: color 200ms ease;
+
+	.tb-icon {
+		width: 1em;
+		height: 1em;
+	}
+}
+
+.tb-icon-list--icon-start .tb-icon-list-item__inner {
+	align-items: flex-start;
+}
+
+.tb-icon-list--icon-end .tb-icon-list-item__inner {
+	align-items: flex-end;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tb-icon-list-item__inner,
+	.tb-icon-list-item__icon {
+		transition: none;
+	}
+}

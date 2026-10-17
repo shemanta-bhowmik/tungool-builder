@@ -1,0 +1,30 @@
+// Editor only.
+
+// Keep empty containers visible and clickable.
+.tb-container > .tb-container__inner > .block-list-appender:only-child {
+	min-height: 60px;
+}
+
+// Blocks hidden on the current preview device stay selectable, but dimmed.
+@mixin tb-editor-hidden {
+	opacity: 0.35;
+	outline: 1px dashed currentColor;
+}
+
+@media (min-width: 1025px) {
+	.tb-editor-hidden-desktop {
+		@include tb-editor-hidden;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.tb-editor-hidden-tablet {
+		@include tb-editor-hidden;
+	}
+}
+
+@media (max-width: 767px) {
+	.tb-editor-hidden-mobile {
+		@include tb-editor-hidden;
+	}
+}

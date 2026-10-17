@@ -1,0 +1,21 @@
+// TB Text — shared by editor and frontend. Instance values come from DynamicCSS
+// (.tb-text.tb-block-x).
+
+.tb-text {
+	box-sizing: border-box;
+	overflow-wrap: break-word;
+
+	// <span> is used as a block-level element here so columns/max-width work.
+	&:is(span) {
+		display: block;
+	}
+
+	&.tb-text--drop-cap::first-letter {
+		float: left;
+		margin: 0.05em 0.1em 0 0;
+		font-size: 4em;
+		font-weight: 600;
+		line-height: 0.8;
+		text-transform: uppercase;
+	}
+}

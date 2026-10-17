@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/spacer",
+	"version": "1.0.0",
+	"title": "TB Spacer",
+	"category": "tungool-builder",
+	"icon": "image-flip-vertical",
+	"description": "Empty vertical space with a separate height for desktop, tablet and mobile.",
+	"keywords": [ "spacer", "space", "gap", "whitespace" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"height": { "type": "object", "default": { "desktop": "50px" } }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"example": {
+		"attributes": { "height": { "desktop": "80px" } }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

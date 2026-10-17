@@ -1,0 +1,15 @@
+.tb-background-control {
+	display: grid;
+	gap: 16px;
+
+	&__image {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+
+		.components-focal-point-picker-wrapper,
+		.components-base-control {
+			width: 100%;
+		}
+	}
+}

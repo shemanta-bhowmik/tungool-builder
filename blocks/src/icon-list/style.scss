@@ -1,0 +1,60 @@
+// TB Icon List — shared by editor and frontend. DynamicCSS sets --tb-il-gap,
+// --tb-il-align and --tb-il-divider per instance.
+
+.tb-icon-list {
+	--tb-il-gap: 8px;
+	--tb-il-align: flex-start;
+	--tb-il-divider: 1px solid rgba(0, 0, 0, 0.12);
+	display: flex;
+	gap: var(--tb-il-gap);
+	box-sizing: border-box;
+	margin-left: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.tb-icon-list--vertical {
+	flex-direction: column;
+	align-items: var(--tb-il-align);
+}
+
+.tb-icon-list--inline {
+	flex-flow: row wrap;
+	justify-content: var(--tb-il-align);
+	align-items: center;
+}
+
+// Divider sits in the middle of the gap.
+.tb-icon-list--divider > .tb-icon-list-item + .tb-icon-list-item {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		pointer-events: none;
+	}
+}
+
+.tb-icon-list--vertical.tb-icon-list--divider {
+	align-items: stretch;
+
+	> .tb-icon-list-item + .tb-icon-list-item::before {
+		top: calc(var(--tb-il-gap) / -2);
+		right: 0;
+		left: 0;
+		border-top: var(--tb-il-divider);
+	}
+
+	// Keep the alignment option when items are stretched for the divider.
+	> .tb-icon-list-item {
+		display: flex;
+		justify-content: var(--tb-il-align);
+	}
+}
+
+.tb-icon-list--inline.tb-icon-list--divider > .tb-icon-list-item + .tb-icon-list-item::before {
+	top: 15%;
+	bottom: 15%;
+	left: calc(var(--tb-il-gap) / -2);
+	border-left: var(--tb-il-divider);
+}

@@ -1,0 +1,5 @@
+// Editor only: keep the block appender from inheriting list item spacing.
+.tb-icon-list > .block-list-appender {
+	position: relative;
+	list-style: none;
+}

@@ -1,0 +1,123 @@
+// TB Divider — shared by editor and frontend. Every style is drawn as a filled bar
+// (color or gradient) cut by a CSS mask, so gradients work for every style.
+// Instance values come from DynamicCSS as custom properties on .tb-divider.tb-block-x.
+
+@mixin tb-mask($image, $size, $repeat: repeat-x) {
+	-webkit-mask-image: $image;
+	mask-image: $image;
+	-webkit-mask-size: $size;
+	mask-size: $size;
+	-webkit-mask-repeat: $repeat;
+	mask-repeat: $repeat;
+	-webkit-mask-position: left center;
+	mask-position: left center;
+}
+
+$tb-w: var(--tb-divider-weight);
+
+.tb-divider {
+	--tb-divider-weight: 2px;
+	box-sizing: border-box;
+
+	.tb-divider__box {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.tb-divider__line {
+		display: block;
+		box-sizing: border-box;
+		height: $tb-w;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 0;
+		border: 0;
+		opacity: 1;
+		background-color: var(--tb-divider-color, currentColor);
+		background-image: var(--tb-divider-gradient, none);
+	}
+}
+
+.tb-divider__inner {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+
+	> .tb-divider__line {
+		flex: 1 1 0;
+		min-width: 0;
+	}
+}
+
+.tb-divider__inner--left > .tb-divider__line:first-child,
+.tb-divider__inner--right > .tb-divider__line:last-child {
+	display: none;
+}
+
+.tb-divider__element {
+	display: inline-flex;
+	flex: 0 0 auto;
+	align-items: center;
+	max-width: 100%;
+	line-height: 1.3;
+
+	> .tb-icon {
+		display: block;
+		font-size: 1.5em;
+	}
+}
+
+// Line styles.
+.tb-divider--dashed .tb-divider__line {
+	@include tb-mask(
+		repeating-linear-gradient(90deg, #000 0 calc(#{$tb-w} * 4 + 4px), transparent 0 calc(#{$tb-w} * 6 + 7px)),
+		100% 100%,
+		no-repeat
+	);
+}
+
+.tb-divider--dotted .tb-divider__line {
+	@include tb-mask(
+		radial-gradient(circle closest-side, #000 96%, transparent 100%),
+		calc(#{$tb-w} * 2) 100%
+	);
+}
+
+.tb-divider--double .tb-divider__line {
+	height: calc(#{$tb-w} * 3);
+	@include tb-mask(
+		linear-gradient(#000 0 33.333%, transparent 33.333% 66.666%, #000 66.666%),
+		100% 100%,
+		no-repeat
+	);
+}
+
+.tb-divider--zigzag,
+.tb-divider--wave,
+.tb-divider--slashes {
+	--tb-divider-weight: 10px;
+}
+
+.tb-divider--zigzag .tb-divider__line {
+	@include tb-mask(
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10'%3E%3Cpolyline points='0,8.5 5,1.5 10,8.5 15,1.5 20,8.5' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E"),
+		calc(#{$tb-w} * 2) 100%
+	);
+}
+
+.tb-divider--wave .tb-divider__line {
+	@include tb-mask(
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 10'%3E%3Cpath d='M0 5Q5 0 10 5T20 5' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E"),
+		calc(#{$tb-w} * 2) 100%
+	);
+}
+
+.tb-divider--slashes .tb-divider__line {
+	@include tb-mask(
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cline x1='2' y1='10' x2='8' y2='0' stroke='black' stroke-width='2'/%3E%3C/svg%3E"),
+		$tb-w 100%
+	);
+}

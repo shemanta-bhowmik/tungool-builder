@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/slider",
+	"version": "1.0.0",
+	"title": "TB Slider",
+	"category": "tungool-builder",
+	"icon": "slides",
+	"description": "An accessible carousel of slides that hold any blocks, with autoplay, arrows, dots and slide or fade transitions.",
+	"keywords": [ "slider", "carousel", "slideshow", "testimonials", "gallery" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"label": { "type": "string", "default": "" },
+		"effect": { "type": "string", "default": "slide" },
+		"slidesPerView": { "type": "object", "default": { "desktop": 1 } },
+		"gap": { "type": "object", "default": {} },
+		"loop": { "type": "boolean", "default": true },
+		"autoplay": { "type": "boolean", "default": false },
+		"autoplayDelay": { "type": "number", "default": 5000 },
+		"pauseOnHover": { "type": "boolean", "default": true },
+		"speed": { "type": "number", "default": 500 },
+		"showArrows": { "type": "boolean", "default": true },
+		"prevIcon": { "type": "string", "default": "chevron-left" },
+		"nextIcon": { "type": "string", "default": "chevron-right" },
+		"arrowPosition": { "type": "string", "default": "inside" },
+		"arrowSize": { "type": "object", "default": {} },
+		"arrowColor": { "type": "object", "default": {} },
+		"arrowBackground": { "type": "object", "default": {} },
+		"arrowRadius": { "type": "string", "default": "" },
+		"showDots": { "type": "boolean", "default": true },
+		"dotStyle": { "type": "string", "default": "dot" },
+		"dotSize": { "type": "number", "default": 10 },
+		"dotColor": { "type": "object", "default": {} },
+		"dotActiveColor": { "type": "object", "default": {} }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"attributes": { "showDots": true },
+		"innerBlocks": [
+			{
+				"name": "tungool-builder/slide",
+				"attributes": {
+					"minHeight": { "desktop": "220px" },
+					"background": { "color": { "normal": "#f0f0f0" } }
+				},
+				"innerBlocks": [
+					{ "name": "tungool-builder/heading", "attributes": { "content": "Slide one", "level": 3 } }
+				]
+			}
+		]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php"
+}

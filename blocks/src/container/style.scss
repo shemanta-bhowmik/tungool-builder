@@ -1,0 +1,56 @@
+// TB Container — shared by editor and frontend. Instance values come from DynamicCSS.
+.tb-container {
+	position: relative;
+	box-sizing: border-box;
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+
+	> .tb-container__inner {
+		position: relative;
+		z-index: 1;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		min-height: inherit;
+		margin-inline: auto;
+	}
+
+	&.tb-container--boxed > .tb-container__inner {
+		max-width: var(--wp--style--global--content-size, 1140px);
+	}
+
+	// Overlay color/opacity are instance values on ::before.
+	&.tb-container--overlay::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		border-radius: inherit;
+		pointer-events: none;
+	}
+}
+
+// Reset default child margins (spacing comes from Gap). :where() keeps specificity 0,
+// so a child block's own margin setting still wins.
+:where(.tb-container > .tb-container__inner) > * {
+	margin-block: 0;
+}
+
+// Hide on device (frontend). Breakpoints match DynamicCSS: tablet ≤1024px, mobile ≤767px.
+@media (min-width: 1025px) {
+	.tb-hide-desktop {
+		display: none !important;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.tb-hide-tablet {
+		display: none !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.tb-hide-mobile {
+		display: none !important;
+	}
+}

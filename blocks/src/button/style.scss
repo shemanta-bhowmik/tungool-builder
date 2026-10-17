@@ -1,0 +1,6 @@
+// TB Button — shared by editor and frontend. The button look lives in shared/styles/_button.scss.
+@use "../shared/styles/button";
+
+.tb-button-wrap {
+	box-sizing: border-box;
+}

@@ -8,8 +8,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class BlockHandler {
 
+	/**
+	 * Blocks whose viewScript is registered from block.json but NOT auto-enqueued.
+	 * Their render.php enqueues the handle only when the feature that needs it is on.
+	 */
+	const CONDITIONAL_VIEW_SCRIPTS = array( 'tungool-builder/image', 'tungool-builder/post-grid' );
+
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_blocks' ) );
+		add_filter( 'register_block_type_args', array( $this, 'defer_view_scripts' ), 10, 2 );
+	}
+
+	/**
+	 * Keep the script handle registered but stop WP_Block::render() from enqueueing it.
+	 *
+	 * @param array  $args       Block type args.
+	 * @param string $block_name Block name.
+	 * @return array
+	 */
+	public function defer_view_scripts( $args, $block_name ) {
+		if ( in_array( $block_name, self::CONDITIONAL_VIEW_SCRIPTS, true ) ) {
+			$args['view_script_handles'] = array();
+		}
+		return $args;
 	}
 
 	public function register_blocks() {

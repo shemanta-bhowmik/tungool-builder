@@ -1,0 +1,4 @@
+// Editor only: keep an empty slide clickable.
+.tb-slide > .tb-slide__inner {
+	min-height: 2em;
+}

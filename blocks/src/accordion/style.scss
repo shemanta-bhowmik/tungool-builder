@@ -1,0 +1,7 @@
+// TB Accordion — shared by editor and frontend. Instance values come from DynamicCSS.
+.tb-accordion {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	box-sizing: border-box;
+}

@@ -30,6 +30,8 @@ class Plugin {
 		new App\BlockCategory();
 		new App\BlockHandler();
 		new App\Assets();
+		new App\DynamicCSS();
+		new App\PostGrid();
 	}
 
 	public function init_hooks() {

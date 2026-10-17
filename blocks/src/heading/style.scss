@@ -1,0 +1,14 @@
+// TB Heading — shared by editor and frontend.
+.tb-heading {
+	&.tb-heading-align-left {
+		text-align: left;
+	}
+
+	&.tb-heading-align-center {
+		text-align: center;
+	}
+
+	&.tb-heading-align-right {
+		text-align: right;
+	}
+}

@@ -1,0 +1,44 @@
+// TB Slide — shared by editor and frontend. Width/visibility come from the parent slider.
+.tb-slide {
+	position: relative;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-width: 0;
+	background-size: cover;
+	background-position: center;
+
+	&.tb-slide--top {
+		justify-content: flex-start;
+	}
+
+	&.tb-slide--bottom {
+		justify-content: flex-end;
+	}
+
+	> .tb-slide__inner {
+		position: relative;
+		z-index: 1;
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+	// Overlay color/opacity are instance values on ::before.
+	&.tb-slide--overlay::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		border-radius: inherit;
+		pointer-events: none;
+	}
+}
+
+:where(.tb-slide > .tb-slide__inner) > :first-child {
+	margin-top: 0;
+}
+
+:where(.tb-slide > .tb-slide__inner) > :last-child {
+	margin-bottom: 0;
+}

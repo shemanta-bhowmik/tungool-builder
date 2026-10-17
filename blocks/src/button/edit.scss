@@ -1,0 +1,4 @@
+// Editor only: the button is a <span> in the editor, so show the text cursor.
+.tb-button-wrap .tb-button {
+	cursor: text;
+}

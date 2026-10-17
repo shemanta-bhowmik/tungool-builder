@@ -1,0 +1,242 @@
+// TB Slider — shared by editor and frontend. Instance values are custom properties
+// set by DynamicCSS (.tb-slider.tb-block-x).
+.tb-slider {
+	--tb-slider-per-view: 1;
+	--tb-slider-gap: 0px;
+	--tb-slider-speed: 500ms;
+	--tb-slider-arrow-size: 20px;
+	--tb-slider-arrow-radius: 50%;
+	--tb-slider-dot-size: 10px;
+	position: relative;
+	box-sizing: border-box;
+
+	&.tb-slider--arrows-outside {
+		padding-inline: calc(var(--tb-slider-arrow-size) + 1.6em);
+	}
+}
+
+.tb-slider__viewport {
+	position: relative;
+}
+
+// Slide effect: native horizontal scroll-snap (swipe/trackpad work without JS).
+.tb-slider--slide .tb-slider__track {
+	display: flex;
+	gap: var(--tb-slider-gap);
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	> .tb-slide {
+		flex: 0 0 calc((100% - (var(--tb-slider-per-view) - 1) * var(--tb-slider-gap)) / var(--tb-slider-per-view));
+		scroll-snap-align: start;
+	}
+}
+
+// Fade effect: slides stacked in one grid cell; view.js sets .is-active.
+.tb-slider--fade .tb-slider__track {
+	display: grid;
+
+	> .tb-slide {
+		grid-area: 1 / 1;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity var(--tb-slider-speed) ease, visibility 0s linear var(--tb-slider-speed);
+
+		&.is-active {
+			opacity: 1;
+			visibility: visible;
+			transition: opacity var(--tb-slider-speed) ease;
+		}
+	}
+
+	// Before view.js runs (or without JS), show the first slide.
+	&:not(.is-ready) > .tb-slide:first-child {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.tb-slider__arrow {
+	appearance: none;
+	z-index: 2;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: content-box;
+	width: var(--tb-slider-arrow-size);
+	height: var(--tb-slider-arrow-size);
+	margin: 0;
+	padding: 0.6em;
+	font-size: var(--tb-slider-arrow-size);
+	line-height: 0;
+	color: var(--wp--preset--color--contrast, #1e1e1e);
+	background-color: var(--wp--preset--color--base, #fff);
+	border: 0;
+	border-radius: var(--tb-slider-arrow-radius);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+	cursor: pointer;
+	transition: color 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+
+	svg {
+		width: 1em;
+		height: 1em;
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+	}
+
+	&:disabled {
+		opacity: 0.35;
+		cursor: default;
+	}
+}
+
+.tb-slider--arrows-inside,
+.tb-slider--arrows-outside {
+	.tb-slider__viewport > .tb-slider__arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+.tb-slider--arrows-inside .tb-slider__viewport > {
+	.tb-slider__arrow--prev {
+		left: 0.75em;
+	}
+
+	.tb-slider__arrow--next {
+		right: 0.75em;
+	}
+}
+
+.tb-slider--arrows-outside .tb-slider__viewport > {
+	.tb-slider__arrow--prev {
+		right: calc(100% + 0.4em);
+	}
+
+	.tb-slider__arrow--next {
+		left: calc(100% + 0.4em);
+	}
+}
+
+.tb-slider__nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1em;
+	margin-top: 1em;
+}
+
+.tb-slider__dots {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: calc(var(--tb-slider-dot-size) * 0.8);
+}
+
+.tb-slider__dot {
+	appearance: none;
+	width: var(--tb-slider-dot-size);
+	height: var(--tb-slider-dot-size);
+	margin: 0;
+	padding: 0;
+	background-color: rgba(0, 0, 0, 0.25);
+	border: 0;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: background-color 0.2s ease, width 0.2s ease;
+
+	&[aria-current="true"],
+	&:hover {
+		background-color: var(--wp--preset--color--contrast, #1e1e1e);
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+	}
+}
+
+.tb-slider__dots--line .tb-slider__dot {
+	width: calc(var(--tb-slider-dot-size) * 2.5);
+	height: calc(var(--tb-slider-dot-size) * 0.4);
+	border-radius: 2px;
+
+	&[aria-current="true"] {
+		width: calc(var(--tb-slider-dot-size) * 4);
+	}
+}
+
+.tb-slider__dots--square .tb-slider__dot {
+	border-radius: 2px;
+}
+
+// Pause / play (only rendered with autoplay). Shown by view.js.
+.tb-slider__toggle {
+	appearance: none;
+	position: absolute;
+	top: 0.75em;
+	right: 0.75em;
+	z-index: 3;
+	display: inline-flex;
+	padding: 0.45em;
+	font-size: 14px;
+	line-height: 0;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.55);
+	border: 0;
+	border-radius: 4px;
+	cursor: pointer;
+
+	&[hidden] {
+		display: none;
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+	}
+
+	.tb-slider__toggle-play {
+		display: none;
+	}
+
+	&.is-paused {
+		.tb-slider__toggle-play {
+			display: inline-flex;
+		}
+
+		.tb-slider__toggle-pause {
+			display: none;
+		}
+	}
+}
+
+.tb-slider .screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tb-slider--fade .tb-slider__track > .tb-slide,
+	.tb-slider__arrow,
+	.tb-slider__dot {
+		transition: none;
+	}
+}

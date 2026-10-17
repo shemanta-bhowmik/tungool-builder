@@ -1,0 +1,113 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/pricing-table",
+	"version": "1.0.0",
+	"title": "TB Pricing Table",
+	"category": "tungool-builder",
+	"icon": "money-alt",
+	"description": "A pricing plan card with badge, price, feature list with tooltips, a button and a featured style.",
+	"keywords": [
+		"pricing",
+		"price",
+		"plan",
+		"table",
+		"package"
+	],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "" },
+		"subtitle": { "type": "string", "default": "" },
+		"badge": { "type": "string", "default": "" },
+		"badgeStyle": { "type": "string", "default": "badge" },
+		"currency": { "type": "string", "default": "$" },
+		"currencyPosition": { "type": "string", "default": "before" },
+		"amount": { "type": "string", "default": "29" },
+		"priceDecimals": { "type": "string", "default": "" },
+		"period": { "type": "string", "default": "/month" },
+		"originalPrice": { "type": "string", "default": "" },
+		"features": {
+			"type": "array",
+			"default": [
+				{
+					"text": "Unlimited projects",
+					"included": true,
+					"tooltip": ""
+				},
+				{
+					"text": "Email support",
+					"included": true,
+					"tooltip": ""
+				},
+				{
+					"text": "Custom domain",
+					"included": false,
+					"tooltip": ""
+				}
+			]
+		},
+		"includedIcon": { "type": "string", "default": "check" },
+		"excludedIcon": { "type": "string", "default": "close" },
+		"button": {
+			"type": "object",
+			"default": {
+				"text": "",
+				"preset": "primary",
+				"iconPosition": "after"
+			}
+		},
+		"footnote": { "type": "string", "default": "" },
+		"featured": { "type": "boolean", "default": false },
+		"featuredScale": { "type": "number", "default": 1.05 },
+		"align": { "type": "object", "default": {} },
+		"cardBackground": { "type": "object", "default": {} },
+		"cardBorder": { "type": "object", "default": {} },
+		"cardPadding": { "type": "object", "default": {} },
+		"cardShadow": { "type": "object", "default": {} },
+		"featuredBorderColor": { "type": "object", "default": {} },
+		"featuredShadow": { "type": "object", "default": {} },
+		"badgeColor": { "type": "object", "default": {} },
+		"badgeBackground": { "type": "object", "default": {} },
+		"titleTypography": { "type": "object", "default": {} },
+		"titleColor": { "type": "object", "default": {} },
+		"subtitleTypography": { "type": "object", "default": {} },
+		"subtitleColor": { "type": "object", "default": {} },
+		"priceTypography": { "type": "object", "default": {} },
+		"priceColor": { "type": "object", "default": {} },
+		"periodTypography": { "type": "object", "default": {} },
+		"periodColor": { "type": "object", "default": {} },
+		"originalColor": { "type": "object", "default": {} },
+		"featureTypography": { "type": "object", "default": {} },
+		"featureColor": { "type": "object", "default": {} },
+		"featureGap": { "type": "object", "default": {} },
+		"includedColor": { "type": "object", "default": {} },
+		"excludedColor": { "type": "object", "default": {} },
+		"footnoteTypography": { "type": "object", "default": {} },
+		"footnoteColor": { "type": "object", "default": {} }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"spacing": {
+			"margin": true
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "Pro",
+			"subtitle": "For growing teams",
+			"badge": "Most popular",
+			"featured": true,
+			"button": {
+				"text": "Choose plan",
+				"preset": "primary"
+			}
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

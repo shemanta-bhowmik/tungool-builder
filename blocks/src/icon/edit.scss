@@ -1,0 +1,9 @@
+// Editor only: hint shown until an icon is chosen.
+.tb-icon-wrap__placeholder {
+	display: inline-block;
+	padding: 1em;
+	font-size: 13px;
+	line-height: 1.4;
+	border: 1px dashed currentColor;
+	opacity: 0.7;
+}

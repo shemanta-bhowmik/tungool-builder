@@ -1,0 +1,4 @@
+// Editor only: keep an empty tab clickable.
+.tb-tab:empty {
+	min-height: 2em;
+}

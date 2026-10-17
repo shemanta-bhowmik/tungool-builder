@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/divider",
+	"version": "1.0.0",
+	"title": "TB Divider",
+	"category": "tungool-builder",
+	"icon": "minus",
+	"description": "A horizontal divider with line or pattern styles, an optional gradient and optional text or icon in the middle.",
+	"keywords": [ "divider", "separator", "line", "hr" ],
+	"textdomain": "tungool-builder",
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"lineStyle": { "type": "string", "default": "solid" },
+		"width": { "type": "object", "default": {} },
+		"weight": { "type": "object", "default": {} },
+		"align": { "type": "object", "default": {} },
+		"spaceAbove": { "type": "object", "default": {} },
+		"spaceBelow": { "type": "object", "default": {} },
+		"color": { "type": "object", "default": {} },
+		"gradient": { "type": "string", "default": "" },
+		"elementType": { "type": "string", "default": "none" },
+		"text": { "type": "string", "default": "" },
+		"icon": { "type": "string", "default": "star" },
+		"elementPosition": { "type": "string", "default": "center" },
+		"gap": { "type": "object", "default": {} },
+		"iconSize": { "type": "object", "default": {} },
+		"typography": { "type": "object", "default": {} },
+		"elementColor": { "type": "object", "default": {} }
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"example": {
+		"attributes": { "lineStyle": "wave", "elementType": "text", "text": "Divider" }
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

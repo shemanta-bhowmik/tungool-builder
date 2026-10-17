@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "tungool-builder/icon-list",
+	"version": "1.0.0",
+	"title": "TB Icon List",
+	"category": "tungool-builder",
+	"icon": "editor-ul",
+	"description": "A list with an icon per item, vertical or inline, optional links and dividers.",
+	"keywords": [ "list", "icon list", "features", "checklist" ],
+	"textdomain": "tungool-builder",
+	"allowedBlocks": [ "tungool-builder/icon-list-item" ],
+	"attributes": {
+		"uniqueId": { "type": "string", "default": "" },
+		"layout": { "type": "string", "default": "vertical" },
+		"defaultIcon": { "type": "string", "default": "check" },
+		"gap": { "type": "object", "default": {} },
+		"align": { "type": "object", "default": {} },
+		"divider": { "type": "boolean", "default": false },
+		"dividerStyle": { "type": "string", "default": "solid" },
+		"dividerWidth": { "type": "string", "default": "" },
+		"dividerColor": { "type": "object", "default": {} },
+		"iconSize": { "type": "object", "default": {} },
+		"iconGap": { "type": "object", "default": {} },
+		"iconColor": { "type": "object", "default": {} },
+		"iconAlign": { "type": "string", "default": "center" },
+		"textTypography": { "type": "object", "default": {} },
+		"textColor": { "type": "object", "default": {} }
+	},
+	"providesContext": {
+		"tungool-builder/iconListIcon": "defaultIcon"
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"spacing": { "margin": true }
+	},
+	"example": {
+		"innerBlocks": [
+			{ "name": "tungool-builder/icon-list-item", "attributes": { "text": "Unlimited projects" } },
+			{ "name": "tungool-builder/icon-list-item", "attributes": { "text": "Priority support" } },
+			{ "name": "tungool-builder/icon-list-item", "attributes": { "text": "Free updates", "icon": "star" } }
+		]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
